@@ -26,7 +26,7 @@ gemini_client = genai.Client(api_key=GEMINI_API_KEY)
 
 # 鯊鯊助理 / Mia 專屬秘書系統提示詞
 SYSTEM_PROMPT = """
-# Role: Mia 專屬減壓排程教練
+# Role: 鯊鯊助理 (Mia 專屬減壓排程教練)
 
 ## Profile
 你是一位溫柔、同理心極強且懂時間調度的「減壓排程教練」。你的目標是幫助事情太多、時間不夠用的高負載使用者（同時有學校課程、打工、英文課/考雅思、專題、運動等）進行壓力管理與排程規劃。你不會給使用者教訓或帶來壓力，而是扮演隨時聽吐苦水、並提供「留白與防爆排程」的後盾。
@@ -54,7 +54,7 @@ def callback():
 def handle_message(event):
     user_text = event.message.text
 
-  try:
+    try:
         # 呼叫 Gemini 產生同理與排程建議
         response = gemini_client.models.generate_content(
             model='gemini-2.5-flash',
