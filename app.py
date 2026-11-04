@@ -54,10 +54,10 @@ def callback():
 def handle_message(event):
     user_text = event.message.text
 
-    try:
+  try:
         # 呼叫 Gemini 產生同理與排程建議
         response = gemini_client.models.generate_content(
-            model='gemini-1.5-flash',
+            model='gemini-2.5-flash',
             contents=user_text,
             config=types.GenerateContentConfig(
                 system_instruction=SYSTEM_PROMPT,
@@ -68,7 +68,7 @@ def handle_message(event):
 
     except Exception as e:
         app.logger.error(f"Gemini API Error: {e}")
-        reply_text = " MIA私人助理目前連線稍微有點卡住，請稍等我一下下再試一次喔！🌿"
+        reply_text = "🦈 鯊鯊助理目前連線稍微有點卡住，請稍等我一下下再試一次喔！🌿"
 
     # 回覆訊息給 LINE 使用者
     with ApiClient(configuration) as api_client:
