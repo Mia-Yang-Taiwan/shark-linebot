@@ -57,7 +57,7 @@ def handle_message(event):
     try:
         # 呼叫 Gemini 產生同理與排程建議
         response = gemini_client.models.generate_content(
-            model='gemini-2.5-flash',
+           model='gemini-3.8-flash',
             contents=user_text,
             config=types.GenerateContentConfig(
                 system_instruction=SYSTEM_PROMPT,
